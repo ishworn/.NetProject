@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "psu15MJUfLLuFiVyS+XRqV+A5r9IHebOHpFqQqQm4mk=",
+  "Source": "EmployeMagement.Api",
+  "BasePath": "_content/EmployeMagement.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,36 @@
+﻿@page "/first"
+
+@inherits FirstBase
+@inject HttpClient httpClient
+@using System.Text.Json
+
+<h1>Users</h1>
+
+@if (users != null)
+{
+    foreach (var user in users)
+    {
+        <p>@user.Name</p>
+    }
+}
+
+@code {
+    private List<User> users;
+
+    protected override async Task OnInitializedAsync()
+    {
+        var response = await httpClient.GetAsync("api/users");
+        if (response.IsSuccessStatusCode)
+        {
+            var content = await response.Content.ReadAsStringAsync();
+            users = JsonSerializer.Deserialize<List<User>>(content);
+        }
+    }
+
+    public class User
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        // Add other properties as needed
+    }
+}
